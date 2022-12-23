@@ -22,8 +22,8 @@ def make_distributed_train_step(
                 tape.watch(generator.trainable_weights + discriminator.trainable_weights)
 
                 generated_images = generator([noise, labels], training=True)
-                gen_predictions = discriminator(generated_images, labels, training=True)
-                real_predictions = discriminator(images, labels, training=True)
+                gen_predictions = discriminator([generated_images, labels], training=True)
+                real_predictions = discriminator([images, labels], training=True)
                 disc_loss_real, disc_loss_fake = discriminator_loss(real_predictions, gen_predictions)
                 disc_loss_real = disc_loss_real / global_batch_size
                 disc_loss_fake = disc_loss_fake / global_batch_size
