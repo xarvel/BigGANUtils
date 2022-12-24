@@ -65,8 +65,8 @@ def get_birds_dataset(batch_size: int, image_size: int, is_training: bool, seed:
     return get_tfrecord_dataset(
         batch_size=batch_size,
         image_size=image_size,
-        buffer_size=BUFFER_SIZE,
-        tfrecord_path=TFRECORD_PATH,
         is_training=is_training,
-        seed=seed
+        seed=seed,
+        buffer_size=BUFFER_SIZE,
+        tfrecord_path=TFRECORD_PATH
     )
