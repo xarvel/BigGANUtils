@@ -19,7 +19,7 @@ def sample_analytics(
         plt.plot(history['disc_loss_real'], label='Discriminator loss real')
         plt.title('Training process')
 
-        plt.figtext(.7, .16, '\n'.join([
+        plt.figtext(.7, .15, '\n'.join([
             'Epoch = %s' % meta['epoch'],
             "Generator LR = %s" % generator_lr,
             'Discriminator LR = %s' % discriminator_lr,
