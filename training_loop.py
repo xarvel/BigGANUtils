@@ -24,7 +24,7 @@ def training_loop(
                 'gen_loss': round(float(gen_loss), 4)
             })
 
-            pbar.set_description("Current step %s" % (epoch * steps_per_epochs) + step)
+            pbar.set_description("Current step %d" % ((epoch * steps_per_epochs) + step))
             on_step_end(disc_loss_real, disc_loss_fake, gen_loss)
 
         on_epoch_end(epoch)

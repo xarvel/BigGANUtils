@@ -56,7 +56,6 @@ def get_tfrecord_dataset(
 
     return dataset
 
-
 DATASET_SIZE = 13262
 BUFFER_SIZE = DATASET_SIZE
 TFRECORD_PATH = 'gs://brids-xarvel/*.tfrec'
