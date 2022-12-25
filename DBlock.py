@@ -44,14 +44,18 @@ class DBlock(Layer):
     def get_config(self):
         config = super().get_config()
         config.update({
-            "out_channels": self.out_channels,
-            "downsample": self.downsample,
-            "preactivation": self.preactivation,
-            "kernel_initializer": self.kernel_initializer,
-            "conv2d": self.conv2d,
-            "sn_epsilon": self.sn_epsilon
+            "out_channels": self.out_channels
+            # "downsample": self.downsample,
+            # "preactivation": self.preactivation,
+            # "kernel_initializer": self.kernel_initializer,
+            # "conv2d": self.conv2d,
+            # "sn_epsilon": self.sn_epsilon
         })
         return config
+
+    @classmethod
+    def from_config(cls, config):
+        return cls(**config)
 
     def build(self, input_shape):
         batch, height, width, channels = input_shape

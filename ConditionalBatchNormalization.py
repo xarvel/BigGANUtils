@@ -17,10 +17,14 @@ class ConditionalBatchNormalization(Layer):
     def get_config(self):
         config = super().get_config()
         config.update({
-            "kernel_initializer": self.kernel_initializer,
-            "dense": self.dense
+            # "kernel_initializer": self.kernel_initializer,
+            # "dense": self.dense
         })
         return config
+
+    @classmethod
+    def from_config(cls, config):
+        return cls(**config)
 
     def build(self, input_shape):
         batch, height, width, channels = input_shape

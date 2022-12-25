@@ -14,10 +14,14 @@ class SelfAttention(Layer):
     def get_config(self):
         config = super().get_config()
         config.update({
-            "conv2d": self.conv2d,
-            "kernel_initializer": self.kernel_initializer,
+            # "conv2d": self.conv2d,
+            # "kernel_initializer": self.kernel_initializer,
         })
         return config
+
+    @classmethod
+    def from_config(cls, config):
+        return cls(**config)
 
     def build(self, input_shape):
         batch, height, width, in_channels = input_shape

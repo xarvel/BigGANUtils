@@ -80,14 +80,18 @@ class GBlock(Layer):
     def get_config(self):
         config = super().get_config()
         config.update({
-            "out_channels": self.out_channels,
-            "kernel_initializer": self.kernel_initializer,
-            "conv2d": self.conv2d,
-            "dense": self.dense,
-            "bn_epsilon": self.bn_epsilon,
-            "sn_epsilon": self.sn_epsilon
+            "out_channels": self.out_channels
+            # "kernel_initializer": self.kernel_initializer,
+            # "conv2d": self.conv2d,
+            # "dense": self.dense,
+            # "bn_epsilon": self.bn_epsilon,
+            # "sn_epsilon": self.sn_epsilon
         })
         return config
+
+    @classmethod
+    def from_config(cls, config):
+        return cls(**config)
 
     def build(self, input_shape):
         x_shape, label_shape = input_shape
